@@ -1,0 +1,40 @@
+is_in_git_dir() {
+	git_output=$(git rev-parse --is-inside-work-tree 2>/dev/null)
+	if [[ $git_output == "true" ]]; then
+		return 0
+	fi 
+	return 1
+}
+ 
+has_git_changes() {
+
+}
+
+create_git_state() {
+	if is_in_git_dir; then
+		branch_name=$(git branch --show-current)
+		echo "%F{green}($branch_name)%f"
+		return 
+	fi
+	echo ''
+}
+
+create_prompt() {
+	prompt=${PIPE_A}${WHITESPACE}%~
+	prompt="$prompt $(create_git_state)"
+	prompt=$prompt${NEWLINE}${PIPE_B}${ARROW}${DOLLAR}${WHITESPACE}
+	echo $prompt
+}
+
+set -o PROMPT_SUBST
+
+NEWLINE=$'\n'
+PIPE_A="╭"
+PIPE_B="╰"
+WHITESPACE=" "
+DOLLAR="$"
+ARROW=">"
+
+precmd() {
+  PROMPT="$(create_prompt)"
+}

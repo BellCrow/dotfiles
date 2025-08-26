@@ -25,5 +25,8 @@ return {
 				layout_strategy = 'vertical'
 			}
 		})
+		builtin.file_ignore_patterns = {
+			"^ais/"
+		}
 	end,
 }

@@ -14,6 +14,10 @@ vim.opt.softtabstop = 2
 vim.opt.tabstop = 2
 vim.o.winborder = "none"
 vim.o.cursorline = true
+vim.opt.termguicolors = true
+
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- im old so i have to have vim wait for me :(
 vim.o.timeout = false
@@ -21,6 +25,7 @@ vim.o.wrap = false
 vim.o.laststatus = 3
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- split window navigation
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -46,6 +51,7 @@ vim.keymap.set("v", "v", "iw")
 -- make yank more smorter
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
+
 --experimental lol
 vim.api.nvim_create_user_command("SprichDeutsch", function()
 	vim.keymap.set("i", "ue", "ü")

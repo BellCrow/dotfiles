@@ -1,0 +1,29 @@
+# start tmux if not already in tmux
+if [ -z "$TMUX" ]
+then
+	tmux
+fi
+
+# i luuuuuv vim
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# setup vi mode for terminal
+bindkey -v
+bindkey ^R history-incremental-search-backward 
+bindkey ^S history-incremental-search-forward
+
+
+# exports
+PATH=$PATH:~/dev/tools
+PATH=$PATH:~/dev/lsp
+
+# add prompt
+source ~/.my_zsh_prompt
+
+# aliases
+source ~/.my_zsh_aliases
+
+# add ssh keys
+eval "$(ssh-agent -s)" &> /dev/null
+ssh-add -q ~/.ssh/gitlab_th_luebeck

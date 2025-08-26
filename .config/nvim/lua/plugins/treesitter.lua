@@ -17,7 +17,6 @@ return {
 				"vim",
 				"vimdoc",
 				"yaml",
-				"go",
 			},
 			-- Autoinstall languages that are not installed
 			highlight = { enable = true },

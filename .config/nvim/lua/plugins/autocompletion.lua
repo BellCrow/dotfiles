@@ -58,7 +58,7 @@ return {
 				-- Select the [n]ext item
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				-- Select the [p]revious item
-	 			["<C-p>"] = cmp.mapping.select_prev_item(),
+				["<C-p>"] = cmp.mapping.select_prev_item(),
 
 				-- Scroll the documentation window [b]ack / [f]orward
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -105,7 +105,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },
-				{name = "nvim_lsp_signature_help"}
+				{ name = "nvim_lsp_signature_help" }
 			},
 		})
 	end,

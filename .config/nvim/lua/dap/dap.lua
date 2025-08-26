@@ -4,7 +4,6 @@ return {
 		{
 			'nvim-neotest/nvim-nio',
 			'mfussenegger/nvim-dap-python',
-			'leoluz/nvim-dap-go'
 		},
 	},
 	config = function()

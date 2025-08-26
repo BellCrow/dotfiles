@@ -6,18 +6,22 @@ return {
 			lua = { "stylua" },
 			python = { "autopep8" },
 			rust = { "rustfmt" },
+			xml = { "xmllint" },
+			json = { "jq" }
+
 		},
-		-- formatters = {
-		-- 	mine = {
-		-- 		command = "myTestRustFormatter",
-		-- 		args = {},
-		-- 		stdin = true,
-		-- 		condition = function(self, ctx)
-		-- 			-- TODO: add here to only let csharpier run on windows
-		-- 			return false
-		-- 		end,
-		-- 	},
-		-- },
+		formatters = {
+			xmllint = {
+				command = "xmllint",
+				args = { "--format", "-" },
+				stdin = true,
+			},
+			jq = {
+				command = "jq",
+				args = { "." },
+				stdin = true,
+			},
+		},
 	},
 
 	keys = {

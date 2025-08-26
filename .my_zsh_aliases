@@ -1,0 +1,11 @@
+# navigation
+alias repos="cd ~/repos/"
+alias vimconfig="cd ~/dotfiles/.config/nvim"
+alias config="cd ~/dotfiles/"
+
+# common unix tools
+alias vim=nvim
+alias ll="ls -lAh --color=auto"
+
+# tools 
+alias k9s="k9s --kubeconfig kubeconfig"
