@@ -26,4 +26,5 @@ source ~/.my_zsh_aliases
 
 # add ssh keys
 eval "$(ssh-agent -s)" &> /dev/null
-ssh-add -q ~/.ssh/gitlab_th_luebeck
+
+grep -slR "PRIVATE" ~/.ssh/ | xargs -I {} ssh-add {} 
