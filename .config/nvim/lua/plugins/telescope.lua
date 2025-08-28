@@ -26,7 +26,7 @@ return {
 			}
 		})
 		builtin.file_ignore_patterns = {
-			"^ais/"
+			"org/"
 		}
 	end,
 }
