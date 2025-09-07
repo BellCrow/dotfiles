@@ -69,11 +69,10 @@ end, {})
 local white_space_visible = false
 vim.api.nvim_create_user_command("ToggleWs", function()
 	if not white_space_visible then
-		vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+		vim.opt.listchars = { tab = "» ", trail = "·", lead = "·", nbsp = "␣", eol = "⏎" }
 		white_space_visible = true
 	else
-
-		vim.opt.listchars = {  tab = "  ", trail = " ", nbsp = " "}
+		vim.opt.listchars = { tab = "  ", trail = " ", lead = " ", nbsp = " ", eol = " "}
 		white_space_visible = false
 	end
 end, {})

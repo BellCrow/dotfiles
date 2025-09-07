@@ -9,3 +9,5 @@ alias ll="ls -lAh --color=auto"
 
 # tools 
 alias k9s="k9s --kubeconfig kubeconfig"
+alias lzg="lazygit"
+alias lzd="lazydocker"
