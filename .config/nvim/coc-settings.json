@@ -1,0 +1,14 @@
+{
+  "languageserver": {
+    "roslyn": {
+      "command": "roslyn",
+      "rootPatterns": [
+        "*.csproj"
+      ],
+      "trace.server": "verbose",
+      "filetypes": [
+        "cs"
+      ]
+    }
+  }
+}
