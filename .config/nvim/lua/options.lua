@@ -1,5 +1,4 @@
 -- Disclaimer some of these are taken from: https://github.dev/nvim-lua/kickstart.nvim
-
 -- 
 -- Settings
 --
@@ -28,6 +27,7 @@ vim.o.cursorline = true
 vim.o.scrolloff = 5
 -- ask for confirmation instead of closing file with :q if there are unsaved changes
 vim.o.confirm = true
+
 vim.opt.termguicolors = true
 
 -- timeout for combo completion etc.
@@ -42,10 +42,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+
+vim.o.winborder = 'rounded'
 --
 -- Binds
 --
--- smart binds
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- window navigation

@@ -9,10 +9,9 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 bindkey -e
+
 # exports
-PATH=$PATH:~/dev/tools
-PATH=$PATH:~/dev/lsp
-PATH=$PATH:~/.dotnet
+source ~/.my_zsh_paths
 
 # add prompt
 source ~/.my_zsh_prompt

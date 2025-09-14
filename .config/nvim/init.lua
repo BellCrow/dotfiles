@@ -24,3 +24,5 @@ require("lazy").setup({
 		{import = "theme"},
 	}
 })
+
+require("languages.lua")
