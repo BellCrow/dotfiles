@@ -1,7 +1,7 @@
 return {
-"mfussenegger/nvim-jdtls",
+    "mfussenegger/nvim-jdtls",
 
-config = function ()
-	vim.lsp.enable("jdtls")
-end
+    config = function()
+        vim.lsp.enable("jdtls")
+    end,
 }

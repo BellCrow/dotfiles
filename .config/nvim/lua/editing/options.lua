@@ -1,15 +1,14 @@
 -- Disclaimer some of these are taken from: https://github.dev/nvim-lua/kickstart.nvim
--- 
+--
 -- Settings
 --
 
 vim.g.have_nerd_font = true
 
-
 -- because im a vimposter ;)
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+    vim.o.clipboard = "unnamedplus"
 end)
 
 vim.opt.shiftwidth = 4
@@ -34,10 +33,10 @@ vim.o.timeoutlen = 20000
 
 -- have copied text be highlighted on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking text",
-	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+    desc = "Highlight when yanking text",
+    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 vim.o.winborder = "rounded"

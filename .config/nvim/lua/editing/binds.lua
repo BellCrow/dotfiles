@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- window navigation
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
@@ -11,10 +11,9 @@ local buf = vim.lsp.buf
 vim.keymap.set("n", "<leader>rn", buf.rename)
 
 -- so i can paste multiple times the same text
-vim.keymap.set({"n", "v"}, "<leader>p", '"_dP')
+vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
 
 -- shortcut for selecting words
 vim.keymap.set("v", "v", "iw")
 
-vim.keymap.set({"n","v"}, "<leader><leader>", "<cmd>:lua print('test')<CR>")
-
+vim.keymap.set({ "n", "v" }, "<leader><leader>", "<cmd>:lua print('test')<CR>")
