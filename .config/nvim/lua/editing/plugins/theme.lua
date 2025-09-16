@@ -16,16 +16,6 @@ return {
                 },
             },
             overrides = function(colors)
-                -- print("In override")
-                -- return {
-                -- 	BlinkCmpMenu = { bg = colors.theme.ui.float.fg },
-                -- 	-- BlinkCmpMenu = { bg = "#ffffff"},
-                -- 	BlinkCmpLabelDetail = { bg = colors.theme.ui.float.fg },
-                -- 	BlinkCmpMenuSelection = { bg = colors.theme.ui.float.fg },
-                --
-                -- 	-- BlinkCmpMenu = { bg = colors.theme.ui.bd_p1},
-                -- 	-- BlinkCmpLabelDetail = { bg = colors.theme.dragonBlack3 },
-                -- 	-- BlinkCmpMenuSelection = { bg = colors.theme.waveBlue1 },
                 local theme = colors.theme
                 return {
                     NormalFloat = { bg = "none" },
@@ -45,6 +35,7 @@ return {
                     -- colors. so we set them here explicitly
                     BlinkCmpMenuBorder = { bg = "None", fg = theme.ui.float.fg_border },
                     BlinkCmpMenu = { bg = "None", fg = theme.ui.fg_dim },
+                    BlinkCmpScrollBarThumb = { bg = theme.ui.float.fg_border, fg = theme.ui.bg_search },
                 }
             end,
         })

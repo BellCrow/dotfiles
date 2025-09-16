@@ -9,7 +9,6 @@ return {
                 timeout_m = 500,
             },
         })
-        print("in init")
         vim.keymap.set("n", "<leader>ec", function()
             require("conform").format({ async = true, lsp_format = "fallback" })
         end)
