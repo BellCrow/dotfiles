@@ -3,10 +3,8 @@
 -- Settings
 --
 
--- first things first
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
+
 
 -- because im a vimposter ;)
 vim.o.mouse = 'a'
@@ -25,6 +23,7 @@ vim.o.splitbelow = true
 vim.o.updatetime = 250
 vim.o.cursorline = true
 vim.o.scrolloff = 5
+vim.o.wrap = false
 -- ask for confirmation instead of closing file with :q if there are unsaved changes
 vim.o.confirm = true
 
@@ -41,23 +40,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
-
-
-vim.o.winborder = 'rounded'
---
--- Binds
---
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- window navigation
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
-
--- so i can paste multiple times the same text
-vim.keymap.set({"n", "v"}, "<leader>p", '"_dP')
-
-vim.keymap.set("v", "v", "iw")
-
-vim.keymap.set({"n","v"}, "<leader><leader>", "<cmd>:lua print('test')<CR>")
+vim.o.winborder = "rounded"
