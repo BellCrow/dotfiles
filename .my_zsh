@@ -16,7 +16,6 @@ source ~/.my_zsh_paths
 # add prompt
 source ~/.my_zsh_prompt
 
-# aliases
 source ~/.my_zsh_aliases
 
 source ~/.my_zsh_gitconfig
@@ -25,3 +24,7 @@ source ~/.my_zsh_gitconfig
 eval "$(ssh-agent -s)" &> /dev/null
 
 grep -slR "PRIVATE" ~/.ssh/ | xargs -I {} ssh-add -q {} 
+
+# completion for cli tools
+autoload -U compinit
+compinit -i

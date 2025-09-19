@@ -11,3 +11,6 @@ alias ll="ls -lAh --color=auto"
 alias k9s="k9s --kubeconfig kubeconfig"
 alias lzg="lazygit"
 alias lzd="lazydocker"
+
+# git helpers
+alias ec="git commit --allow-empty -m \"- Trigger CI\" && git push"
