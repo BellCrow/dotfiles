@@ -9,6 +9,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 -- lsp stuff
 local buf = vim.lsp.buf
 vim.keymap.set("n", "<leader>rn", buf.rename)
+vim.keymap.set("n", "<leader>ca", buf.code_action)
 
 -- so i can paste multiple times the same text
 vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
