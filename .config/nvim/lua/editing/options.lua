@@ -14,6 +14,7 @@ end)
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.relativenumber = true
+vim.opt.number = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.o.signcolumn = "yes"
