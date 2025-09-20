@@ -31,6 +31,27 @@ return {
                 ["g\\"] = { "actions.toggle_trash", mode = "n" },
             },
             use_default_keymaps = false,
+
+            view_options = {
+                -- This function defines what is considered a "hidden" file
+                is_hidden_file = function(name, bufnr)
+                    -- add a true or false entry, to have a file hidden or shown.
+                    -- by default all files starting with a "." are hidden
+                    local file_rules = {}
+                    -- this line for instance shows .gitignore files
+                    -- mind, that other dotfiles will still be hidden
+                    file_rules[".gitignore"] = true
+
+                    local file_rule = file_rules[name]
+                    if file_rule ~= nil and file_rule then
+                        return false
+                    end
+                    -- this is the default handler for all files, that
+                    -- do not have an explicit handler
+                    local m = name:match("^%.")
+                    return m ~= nil
+                end,
+            },
         })
         vim.keymap.set("n", "\\", "<cmd>Oil<CR>")
     end,

@@ -16,5 +16,3 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
 
 -- shortcut for selecting words
 vim.keymap.set("v", "v", "iw")
-
-vim.keymap.set({ "n", "v" }, "<leader><leader>", "<cmd>:lua print('test')<CR>")
