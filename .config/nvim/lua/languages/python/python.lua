@@ -1,7 +1,24 @@
-vim.lsp.config("pyrefly", {
-    cmd = { "pyrefly", "lsp" },
-    root_markers = { ".git" },
+vim.lsp.config("basedpyright", {
+    cmd = { "basedpyright-langserver", "--stdio" },
     filetypes = { "python" },
+    root_markers = {
+        "pyproject.toml",
+        "setup.py",
+        "setup.cfg",
+        "requirements.txt",
+        "Pipfile",
+        "pyrightconfig.json",
+        ".git",
+    },
+    settings = {
+        basedpyright = {
+            analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "openFilesOnly",
+            },
+        },
+    },
 })
 
-vim.lsp.enable({ "pyrefly" })
+vim.lsp.enable({ "basedpyright" })
