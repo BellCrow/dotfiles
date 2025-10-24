@@ -26,6 +26,7 @@ vim.o.scrolloff = 5
 vim.o.wrap = false
 -- ask for confirmation instead of closing file with :q if there are unsaved changes
 vim.o.confirm = true
+vim.o.swapfile = false
 
 vim.opt.termguicolors = true
 
