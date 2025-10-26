@@ -13,20 +13,17 @@ source ./config.sh
 mkdir -p $TOOLS_INSTALL_DIR
 
 # first and foremost my beloved NVIM
-NVIM_PATH="$TOOLS_INSTALL_DIR/nvim"
-echo "$NVIM_PATH"
-if [ ! -f $NVIM_PATH ]; then
+NVIM_INSTALL_PATH="$TOOLS_INSTALL_DIR/nvim"
+if [ ! -f $NVIM_INSTALL_PATH ]; then
 	echo "Installing nvim..."
-	TEMP=$(mktemp)
-	echo "Temp dir is here: $TEMP"
-	cd $TEMP
+	cd $(mktemp -d)
 	pwd
-	wget "https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.tar.gz"
-	tar -xzf nvim-linux-x86_64.tar.gz
-	cp nvim-linux-x86_64 $NVIM_PATH
-	ln -s $NVIM_PATH $TOOLS_PATH/nvim
-	cd -
-	echo "done"
+	wget -q --show-progress "https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.appimage"
+	cp -r nvim-linux-x86_64.appimage $NVIM_INSTALL_PATH
+	echo "trying to create symlink from $NVIM_INSTALL_PATH to $TOOLS_DIR"
+	chmod +x $NVIM_INSTALL_PATH
+	ln -s "$NVIM_INSTALL_PATH" "$TOOLS_DIR/nvim"
+	echo "Installed nvim under $NVIM_INSTALL_PATH"
 else
 	echo "Found existing nvim installation"
 fi
