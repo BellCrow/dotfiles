@@ -1,5 +1,6 @@
 # navigation
 alias repos="cd ~/repos/"
+alias studies="cd ~/repos/studies/"
 alias vimconfig="cd ~/dotfiles/.config/nvim"
 alias config="cd ~/dotfiles/"
 
@@ -14,3 +15,10 @@ alias lzd="lazydocker"
 
 # git helpers
 alias ec="git commit --allow-empty -m \"- Trigger CI\" && git push"
+
+# fzf
+function cf() {
+    local dirname
+    dirname=$(find -type d  | fzf) || return
+    cd "$dirname"
+}

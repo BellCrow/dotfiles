@@ -12,6 +12,8 @@ local function setup_keybinds()
 
     vim.keymap.set("n", "<Leader>fg", t.live_grep)
 
+    vim.keymap.set("n", "<Leader>fw", t.grep_string)
+
     vim.keymap.set("n", "<Leader>fr", t.resume)
 
     vim.keymap.set("n", "<Leader>fk", t.keymaps)
