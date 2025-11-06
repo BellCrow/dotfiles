@@ -1,8 +1,8 @@
 -- LSP
 vim.lsp.config("docker_lsp", {
-    cmd = { "docker_lsp", "start" },
+    cmd = { "docker-langserver", "--stdio" },
     root_markers = { ".git" },
-    filetypes = { "docker-compose.yaml" },
+    filetypes = { "docker-compose.yaml", "dockerfile" },
     config = function()
         print("Starting docker lsp...")
     end,
