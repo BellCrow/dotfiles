@@ -40,3 +40,11 @@ echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/w
 sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
 sudo apt update
 sudo apt install -y wezterm
+
+
+# install dotnet
+curl -sL https://dot.net/v1/dotnet-install.sh | bash
+
+# lsp, formatters
+brew install stylua
+sudo apt install libxml2-utils # xml formatter
