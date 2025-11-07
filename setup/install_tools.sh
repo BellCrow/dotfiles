@@ -23,6 +23,7 @@ sudo apt install -y fd-find
 sudo apt install -y python3
 sudo apt install -y nodejs
 sudo apt install -y stow
+sudo apt install -y jq
 
 brew install ripgrep 
 brew install kubectl
