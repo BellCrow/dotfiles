@@ -1,4 +1,3 @@
-
 PATH=$PATH:~/dev/tools
 PATH=$PATH:~/dev/lsp
 PATH=$PATH:~/dev/formatters
