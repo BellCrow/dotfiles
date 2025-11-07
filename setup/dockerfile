@@ -1,3 +1,11 @@
+# this dockerfile can be used to test the install script
+# for the tools with a fresh ubuntu installation
+# is not a guarentee, that it will work with a real pc
+# but is a good tool to find issues
+# you can use this to do the tests:
+
+# docker build -t test:latest -f ./dockerfile . && docker run -it --rm  test:latest
+
 # Use a fresh Ubuntu image
 FROM ubuntu:22.04
 
