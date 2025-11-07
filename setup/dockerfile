@@ -1,0 +1,28 @@
+# Use a fresh Ubuntu image
+FROM ubuntu:22.04
+
+# Avoid interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Make sure basic tools exist
+RUN apt update && apt install -y \
+	sudo \
+	curl \
+	git \
+	zsh \
+	build-essential \
+	ca-certificates
+
+# Create a non-root user (optional but closer to a real machine)
+RUN useradd -m dev && echo "dev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+USER dev
+WORKDIR /home/dev
+
+# Copy your setup script into the container
+COPY install_tools.sh /home/dev/install_tools.sh
+RUN sudo chmod +x /home/dev/install_tools.sh
+
+# Run the script automatically (optional—you can also run it manually)
+# RUN /home/dev/install_tools.sh
+
+CMD ["/bin/bash"]
