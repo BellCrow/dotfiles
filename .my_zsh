@@ -10,14 +10,9 @@ export EDITOR="$VISUAL"
 export MANPAGER='nvim +Man!'
 bindkey -e
 
-# exports
 source ~/.my_zsh_paths
-
-# add prompt
 source ~/.my_zsh_prompt
-
 source ~/.my_zsh_aliases
-
 source ~/.my_zsh_gitconfig
 
 # add ssh keys

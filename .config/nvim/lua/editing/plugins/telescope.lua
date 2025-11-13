@@ -30,6 +30,13 @@ return {
     config = function()
         require("telescope").setup({
             defaults = { layout_strategy = "vertical" },
+            pickers = {
+                live_grep = {
+                    additional_args = function(opts)
+                        return { "--hidden" }
+                    end,
+                },
+            },
         })
         setup_keybinds()
     end,

@@ -14,3 +14,10 @@ alias lzd="lazydocker"
 
 # git helpers
 alias ec="git commit --allow-empty -m \"- Trigger CI\" && git push"
+
+# new task folder
+alias newtask="pipx run cookiecutter ~/dev/cookiecutter_templates/task"
+
+# fzf helper
+alias cf="cd \$(find ~ * -type d | fzf)"
+alias cff="cd \$(find * -type d | fzf)"
