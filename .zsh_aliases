@@ -1,5 +1,6 @@
 # navigation
 alias repos="cd ~/repos/"
+alias studies="cd ~/repos/studies/"
 alias vimconfig="cd ~/dotfiles/.config/nvim"
 alias config="cd ~/dotfiles/"
 
@@ -11,6 +12,7 @@ alias ll="ls -lAh --color=auto"
 alias k9s="k9s --kubeconfig kubeconfig"
 alias lzg="lazygit"
 alias lzd="lazydocker"
+alias fd="fdfind"
 
 # git helpers
 alias ec="git commit --allow-empty -m \"- Trigger CI\" && git push"
@@ -18,6 +20,15 @@ alias ec="git commit --allow-empty -m \"- Trigger CI\" && git push"
 # new task folder
 alias newtask="pipx run cookiecutter ~/dev/cookiecutter_templates/task"
 
-# fzf helper
-alias cf="cd \$(find ~ * -type d | fzf)"
-alias cff="cd \$(find * -type d | fzf)"
+# fzf
+function cf() {
+    local dirname
+    dirname=$(find -type d  | fzf) || return
+    cd "$dirname"
+}
+# fzf
+function cff() {
+    local dirname
+    dirname=$(find ~ -type d  | fzf) || return
+    cd "$dirname"
+}
