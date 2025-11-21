@@ -13,7 +13,7 @@ has_git_changes() {
 create_git_state() {
 	if is_in_git_dir; then
 		branch_name=$(git branch --show-current)
-		echo "%F{green}($branch_name)%f"
+		echo "%F{green}[$branch_name]%f"
 		return 
 	fi
 	echo ''
