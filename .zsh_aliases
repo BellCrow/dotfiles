@@ -23,3 +23,5 @@ function cf() {
     dirname=$(find -type d  | fzf) || return
     cd "$dirname"
 }
+alias py="python3"
+alias discordInstall="cd ~/Downloads && sudo dpkg -i discord* && rm discord*"
