@@ -27,6 +27,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # i luuuuuv vim
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export MANPAGER='nvim +Man!'
 
 # but not THAT much tbh.... 
 bindkey -e
