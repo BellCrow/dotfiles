@@ -17,7 +17,8 @@ local function setup_keybinds()
     vim.keymap.set("n", "<Leader>ws", fzf.lsp_workspace_symbols)
     vim.keymap.set("n", "grr", fzf.lsp_references)
 
-    -- vim.keymap.set("n", "<Leader>fh", fzf.help_tags)
+    vim.keymap.set("n", "<Leader>fh", fzf.help_tags)
+    vim.keymap.set("n", "<Leader>fk", fzf.keymaps)
     --
     --
     -- vim.keymap.set("n", "<Leader>fw", fzf.grep_string)
@@ -48,9 +49,12 @@ return {
     ---@module "fzf-lua"
     ---@type fzf-lua.Config|{}
     ---@diagnostic disable: missing-fields
-    opts = {},
+    opts = function(_, opts)
+        require("fzf-lua.config")
+    end,
     config = function()
-        require("fzf-lua").setup()
+        local fzf = require("fzf-lua")
+        fzf.setup()
         setup_keybinds()
     end,
     ---@diagnostic enable: missing-fields
