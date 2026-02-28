@@ -14,8 +14,6 @@ alias lzg="lazygit"
 alias lzd="lazydocker"
 alias fd="fdfind"
 
-# git helpers
-alias ec="git commit --allow-empty -m \"- Trigger CI\" && git push"
 
 # fzf
 function cf() {

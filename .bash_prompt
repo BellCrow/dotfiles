@@ -1,0 +1,50 @@
+# colors
+RED="\[\e[31m\]"
+GREEN="\[\e[32m\]"
+BLUE="\[\e[36m\]"
+YELLOW="\[\e[33m\]"
+ENDCOLOR="\[\e[0m\]"
+
+# common signs
+NEWLINE=$'\n'
+WHITESPACE=" "
+ARROW="❯"
+
+is_in_git_dir() {
+	git_output=$(git rev-parse --is-inside-work-tree 2>/dev/null)
+	if [ -z "${git_output}" ]; then
+		echo 0
+	else 
+		echo 1
+	fi
+}
+
+has_git_changes(){
+	git_output=$(git status --porcelain 2>/dev/null)
+	if [ -z "${git_output}" ]; then
+		echo 0
+	else 
+		echo 1
+	fi
+}
+
+create_git_state() {
+	is_this_git_dir=$(is_in_git_dir)
+	if [ $is_this_git_dir -eq 1 ]; then
+		branch_name=$(git branch --show-current)
+		PRINT_COLOR="$GREEN"
+		if [ $(has_git_changes) -eq 1 ]; then
+			PRINT_COLOR="$YELLOW"
+		fi
+
+		echo "$PRINT_COLOR($branch_name)$ENDCOLOR"
+		return 
+	fi
+	echo ''
+}
+
+set_prompt_vars() {
+	PS1="${BLUE}\w${ENDCOLOR}${WHITESPACE}$(create_git_state) ${NEWLINE}${GREEN}${ARROW}${ENDCOLOR}${WHITESPACE}"
+}
+
+PROMPT_COMMAND="set_prompt_vars"
