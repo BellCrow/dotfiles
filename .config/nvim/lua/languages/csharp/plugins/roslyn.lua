@@ -1,6 +1,11 @@
 return {
     "seblyng/roslyn.nvim",
-    opts = {},
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
+    opts = {
+        filewatching = "roslyn",
+        broad_search = true,
+    },
     setup = function()
         print("Loading roslyn lsp...")
         vim.lsp.config("roslyn", {
@@ -14,6 +19,9 @@ return {
                 },
                 ["csharp|code_lens"] = {
                     dotnet_enable_references_code_lens = true,
+                },
+                ["csharp|completion"] = {
+                    dotnet_show_completion_items_from_unimported_namespaces = true,
                 },
             },
         })
