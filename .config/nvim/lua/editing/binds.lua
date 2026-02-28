@@ -1,3 +1,4 @@
+require("terminal")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- window navigation
@@ -26,4 +27,11 @@ vim.keymap.set("v", "v", "iw")
 -- copy absolute path of current file(or buffer) to clipboard
 vim.keymap.set({ "n", "v" }, "<leader>l", function()
     vim.fn.setreg("+", vim.fn.expand("%:p"))
+-- terminal help
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+vim.keymap.set("n", "<leader>th", function()
+    Create_floating_term_in_path_of_current_file()
+end)
+vim.keymap.set("n", "<leader>tt", function()
+    Create_floating_term_in_cwd()
 end)
