@@ -1,0 +1,1 @@
+vim.o.cursorcolumn = true
