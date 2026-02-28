@@ -14,8 +14,6 @@ alias lzg="lazygit"
 alias lzd="lazydocker"
 alias fd="fdfind"
 
-# git helpers
-alias ec="git commit --allow-empty -m \"- Trigger CI\" && git push"
 
 # fzf
 function cf() {
@@ -23,3 +21,5 @@ function cf() {
     dirname=$(find -type d  | fzf) || return
     cd "$dirname"
 }
+alias py="python3"
+alias discordInstall="cd ~/Downloads && sudo dpkg -i discord* && rm discord*"

@@ -1,0 +1,4 @@
+git config --global pull.rebase false
+
+# git helpers
+alias ec="git commit --allow-empty -m \"- Trigger CI\" && git push"

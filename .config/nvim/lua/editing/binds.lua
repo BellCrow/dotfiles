@@ -1,3 +1,4 @@
+require("terminal")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- window navigation
@@ -18,3 +19,12 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
 
 -- shortcut for selecting words
 vim.keymap.set("v", "v", "iw")
+
+-- terminal help
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+vim.keymap.set("n", "<leader>th", function()
+    Create_floating_term_in_path_of_current_file()
+end)
+vim.keymap.set("n", "<leader>tt", function()
+    Create_floating_term_in_cwd()
+end)
