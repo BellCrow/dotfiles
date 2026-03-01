@@ -93,5 +93,4 @@ eval "$(ssh-agent -s)" &> /dev/null
 grep -slR "PRIVATE" ~/.ssh/ | xargs -I {} ssh-add -q {}
 
 # activate fzf keybinds
-# source <(fzf --bash)
-# todo add this fzf + fzf integration again
+eval "$(fzf --bash)"
