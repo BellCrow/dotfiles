@@ -41,4 +41,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.highlight.on_yank()
     end,
 })
+
 vim.o.winborder = "rounded"
+
+vim.diagnostic.config({
+    severity_sort = true,
+})
