@@ -100,6 +100,10 @@ function Add_spec_to_other_spec(spec_to_add_to, to_add)
         table.insert(spec_to_add_to.import, import)
     end
 end
----Creates a spec for requiring of all the lua files in a folder and the tables, that can be loaded with lazy
----@param path string
-function generate_folder_spec(path) end
+
+-- taken from https://gist.github.com/kgriffs/124aae3ac80eefe57199451b823c24ec
+function String_starts_with(string_to_check, affix)
+    assert(type(string_to_check) == "string", "first argument to check must be of type string")
+    assert(type(affix) == "string", "Affix must be of type string")
+    return string_to_check:sub(1, #affix) == affix
+end

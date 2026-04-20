@@ -7,6 +7,7 @@ return {
         -- See :h blink-cmp-config-keymap for defining your own keymap
         keymap = { preset = "default" },
 
+        completion = { menu = { direction_priority = { "s", "n" } } },
         appearance = {
             nerd_font_variant = "mono",
         },
@@ -23,5 +24,5 @@ return {
         fuzzy = { implementation = "prefer_rust_with_warning" },
     },
     opts_extend = { "sources.default" },
-    signature = { enabled = true },
+    signature = { enabled = false },
 }

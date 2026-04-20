@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 config.font = wezterm.font("JetBrainsMono-Bold")
-config.color_scheme = "Tokyo Night Storm (Gogh)"
+config.color_scheme = "tokyonight_moon"
 config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 12
 config.audible_bell = "Disabled"
