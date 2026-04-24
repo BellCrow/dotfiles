@@ -3,11 +3,29 @@ function File_exists(path)
     return vim.uv.fs_stat(path) ~= nil
 end
 
-local function get_content_in_path(path, type_arg)
+local function get_entries_in_path(path)
     assert(path ~= nil, "Path cannot be nil")
     local scan_dir_handle = vim.uv.fs_scandir(path)
     if scan_dir_handle == nil then
-        error("Could not open folder " .. path .. " for enumeration of content")
+        error("Could not open directory " .. path .. " for enumeration of content")
+    end
+
+    local ret = {}
+    local name, _ = vim.uv.fs_scandir_next(scan_dir_handle)
+
+    while name ~= nil do
+        table.insert(ret, vim.fs.joinpath(path, name))
+        name, _ = vim.uv.fs_scandir_next(scan_dir_handle)
+    end
+
+    return ret
+end
+
+local function get_content_in_path_by_type(path, type_arg)
+    assert(path ~= nil, "Path cannot be nil")
+    local scan_dir_handle = vim.uv.fs_scandir(path)
+    if scan_dir_handle == nil then
+        error("Could not open directory " .. path .. " for enumeration of content")
     end
 
     local ret = {}
@@ -24,7 +42,72 @@ local function get_content_in_path(path, type_arg)
 end
 
 function Get_directories_in_path(path)
-    return get_content_in_path(path, "directory")
+    return get_content_in_path_by_type(path, "directory")
+end
+
+function Collect_files_upwards(start_path, file_name_pattern, stop_marker)
+    assert(start_path ~= nil)
+    assert(file_name_pattern ~= nil)
+
+    -- if we are given a file path, we
+    -- get the containing directory first
+    -- so we can start iterating
+    local start_directory = start_path
+    if vim.fn.isdirectory(start_path) == 0 then
+        start_directory = vim.fs.dirname(start_directory)
+    end
+
+    -- first we have to check the start directory
+    local collected_file_paths = Get_entries_in_path_matching_pattern(start_directory, file_name_pattern)
+
+    local stop_marker_found = false
+    if stop_marker ~= nil then
+        stop_marker_found = #Get_entries_in_path_matching_pattern(start_directory, stop_marker) ~= 0
+    end
+
+    -- then we will iterate upwards
+    for dir in vim.fs.parents(start_directory) do
+        -- vim.print("Inspecting " .. dir)
+        -- print("Inspecting directory: " .. dir)
+        local found_files_in_dir = Get_entries_in_path_matching_pattern(dir, file_name_pattern)
+        for _, file in pairs(found_files_in_dir) do
+            table.insert(collected_file_paths, file)
+        end
+
+        if stop_marker ~= nil then
+            -- vim.print("Looking for stop marker")
+            stop_marker_found = #Get_entries_in_path_matching_pattern(dir, stop_marker) ~= 0
+            -- vim.print("Stop marker " .. tostring(stop_marker_found))
+            if stop_marker_found then
+                -- vim.print("Found stopmarker")
+                -- vim.print(Get_entries_in_path_matching_pattern(dir, stop_marker))
+                return collected_file_paths
+            end
+        end
+    end
+    return collected_file_paths
+end
+
+function Get_entries_in_path_matching_pattern(path, pattern)
+    assert(path)
+    assert(pattern)
+
+    local scan_dir_handle = vim.uv.fs_scandir(path)
+    if scan_dir_handle == nil then
+        error("Could not open directory " .. path .. " for enumeration of content")
+    end
+
+    local ret = {}
+    local name, _ = vim.uv.fs_scandir_next(scan_dir_handle)
+
+    while name ~= nil do
+        if name:match(pattern) then
+            table.insert(ret, vim.fs.joinpath(path, name))
+        end
+        name, _ = vim.uv.fs_scandir_next(scan_dir_handle)
+    end
+
+    return ret
 end
 
 function Get_lua_files_in_path(path)
@@ -42,64 +125,12 @@ function Get_lua_files_in_path(path)
 end
 
 function Get_files_in_path(path)
-    return get_content_in_path(path, "file")
+    return get_content_in_path_by_type(path, "file")
 end
 
-function Get_config_lua_path()
-    return vim.fn.stdpath("config") .. "/lua/"
-end
-
-function Generate_folder_spec(path)
-    assert(path ~= nil, "Path cannot be nil")
-    local lua_files = Get_lua_files_in_path(path)
-    local lua_modules_path = {}
-
-    for _, lua_path in ipairs(lua_files) do
-        local lua_module_path = Convert_lua_path_to_module_path(lua_path)
-        table.insert(lua_modules_path, lua_module_path)
-    end
-    local plugin_path = path .. "/plugins/"
-
-    return {
-        requires = lua_modules_path,
-        import = Convert_path_to_plugin_path(plugin_path),
-    }
-end
-
---- Converts a path to a lua file from the ../lua folder, into
---- a module name, that can be required with the "require(xyz)" function
----@param lua_file_path string
-function Convert_lua_path_to_module_path(lua_file_path)
-    local config_lua_folder_path = Get_config_lua_path()
-    local lua_module_path = string.gsub(lua_file_path, config_lua_folder_path, "")
-    lua_module_path = string.gsub(lua_module_path, ".lua$", "")
-    lua_module_path = string.gsub(lua_module_path, "/", ".")
-    return lua_module_path
-end
-
---- Converts a path to a module path, that can be loaded with lazy
----@param folder_path string
-function Convert_path_to_plugin_path(folder_path)
-    -- vim.print("Trying to convert to plugin spec " .. folder_path)
-    if not File_exists(folder_path) then
-        return {}
-    end
-    local config_lua_folder_path = Get_config_lua_path()
-    local module_path = string.gsub(folder_path, config_lua_folder_path, "")
-    -- removing the trailing slash
-    module_path = string.sub(module_path, 0, string.len(module_path) - 1)
-    module_path = string.gsub(module_path, "/", ".")
-    return { module_path }
-end
-
-function Add_spec_to_other_spec(spec_to_add_to, to_add)
-    for _, require in ipairs(to_add.requires) do
-        table.insert(spec_to_add_to.requires, require)
-    end
-    for _, import in ipairs(to_add.import) do
-        table.insert(spec_to_add_to.import, import)
-    end
-end
+-- function Get_config_lua_path()
+--     return vim.fn.stdpath("config") .. "/lua/"
+-- end
 
 -- taken from https://gist.github.com/kgriffs/124aae3ac80eefe57199451b823c24ec
 function String_starts_with(string_to_check, affix)

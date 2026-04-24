@@ -79,6 +79,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export MANPAGER='nvim +Man!'
 
+export PC_PROFILE="PERSONAL"
 # exports
 source ~/.bash_paths
 

@@ -1,0 +1,1 @@
+require("personal/languages/rust")

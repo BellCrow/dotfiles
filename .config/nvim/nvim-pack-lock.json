@@ -46,6 +46,22 @@
       "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "neogen": {
+      "rev": "23e7e9f883d01289ebd90e98025acc860ea26366",
+      "src": "https://github.com/danymat/neogen"
+    },
+    "nvim-dap": {
+      "rev": "45a69eba683a2c448dd9ecfc4de89511f0646b5f",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-dap-cs": {
+      "rev": "16e5debe8cb7fb73c8799d20969ee00883586602",
+      "src": "https://github.com/NicholasMata/nvim-dap-cs"
+    },
+    "nvim-dap-view": {
+      "rev": "dd43736f30ed70571a02e8c560ab69746ad7a1ed",
+      "src": "https://github.com/igorlfs/nvim-dap-view"
+    },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -57,6 +73,15 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "roslyn.nvim": {
+      "rev": "42d1196b4b06411504f897caeee0a3d4940e2654",
+      "src": "https://github.com/seblyng/roslyn.nvim"
+    },
+    "rustaceanvim": {
+      "rev": "2497c7b2a61d4eb5dad716371a64ea82fb068bee",
+      "src": "https://github.com/mrcjkb/rustaceanvim",
+      "version": "9.0.0 - 10.0.0"
     },
     "tiny-inline-diagnostic.nvim": {
       "rev": "b3b91e086795c036ecfe70429b72b26bcb302c91",

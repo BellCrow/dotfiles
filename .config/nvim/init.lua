@@ -1,4 +1,9 @@
 require("core/init")
--- todo add the env var distinction here
--- require("personal/init")
--- require("work/init")
+
+if os.getenv("PC_PROFILE") == "PERSONAL" then
+    require("personal/init")
+end
+
+if os.getenv("PC_PROFILE") == "WORK" then
+    require("work/init")
+end

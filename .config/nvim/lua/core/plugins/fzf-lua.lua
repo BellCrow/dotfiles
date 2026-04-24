@@ -1,6 +1,15 @@
 vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 
-require("fzf-lua").setup({})
+require("fzf-lua").setup({
+    keymap = {
+        fzf = {
+            ["ctrl-q"] = "select-all+accept",
+        },
+    },
+})
+-- replaces the default number selection
+-- called with vim.ui.select with an fzf picker
+require("fzf-lua").register_ui_select()
 
 local fzf = require("fzf-lua")
 

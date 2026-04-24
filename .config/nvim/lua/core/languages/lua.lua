@@ -1,4 +1,4 @@
-local function is_nvim_config()
+local function should_load_nvim_types()
     local config_path = ".config/nvim"
     local buf_path = vim.api.nvim_buf_get_name(0)
     local path_match = buf_path:find(config_path, 1, true)
@@ -11,7 +11,7 @@ local lua_ls_config = {
     filetypes = { "lua" },
 }
 
-if is_nvim_config() then
+if should_load_nvim_types() then
     vim.print("Adding vim types to lua ls")
     lua_ls_config.settings = {
         Lua = {
