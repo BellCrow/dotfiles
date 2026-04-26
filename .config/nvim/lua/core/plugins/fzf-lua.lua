@@ -22,8 +22,8 @@ end)
 
 vim.keymap.set("n", "<Leader>fr", fzf.resume)
 
-vim.keymap.set("n", "<Leader>fd", fzf.diagnostics_document)
-vim.keymap.set("n", "<Leader>fD", fzf.diagnostics_workspace)
+vim.keymap.set("n", "<Leader>dd", fzf.diagnostics_document)
+vim.keymap.set("n", "<Leader>wd", fzf.diagnostics_workspace)
 
 vim.keymap.set("n", "<Leader>fg", fzf.live_grep)
 
