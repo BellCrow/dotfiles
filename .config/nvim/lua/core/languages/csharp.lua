@@ -85,7 +85,7 @@ local function build_target(build_target_arg, clean)
 
     make_command = make_command .. " " .. build_target_arg
     vim.o.makeprg = make_command
-    vim.print("Building target: " .. build_target_arg .. "Log output in register c")
+    vim.print("Building target: " .. build_target_arg .. " Log output in register c")
     vim.cmd("redir @c")
     vim.cmd("silent make")
     vim.cmd("redir END")
