@@ -6,6 +6,12 @@ require("fzf-lua").setup({
             ["ctrl-q"] = "select-all+accept",
         },
     },
+    winopts = {
+        preview = {
+            vertical = "up:65%",
+            layout = "vertical",
+        },
+    },
 })
 -- replaces the default number selection
 -- called with vim.ui.select with an fzf picker
@@ -13,7 +19,7 @@ require("fzf-lua").register_ui_select()
 
 local fzf = require("fzf-lua")
 
-vim.keymap.set("n", "<Leader>fb", fzf.builtin)
+vim.keymap.set("n", "<Leader>fq", fzf.builtin)
 
 -- vim.keymap.set("n", "<Leader>ff", fzf.git_files)
 vim.keymap.set("n", "<Leader>ff", function()

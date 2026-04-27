@@ -89,15 +89,7 @@ local function build_target(build_target_arg, clean)
     vim.cmd("redir @c")
     vim.cmd("silent make")
     vim.cmd("redir END")
-    -- taken from: https://www.reddit.com/r/neovim/comments/1k70493/comment/mousoh3/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-    -- it checks if the quickfix window is open
-    -- basically it check if any of the open windows
-    -- identifies as quickfix. might cause issue if the qf
-    -- window is open, but just not visible, but in that case you have
-    -- to open the qf window by yourself
-    local is_qfix_open = vim.iter(vim.fn.getwininfo()):any(function(wininf)
-        return wininf.quickfix == 1
-    end)
+    local is_qfix_open = Is_quickfix_open()
     if not is_qfix_open and 0 < #vim.fn.getqflist() then
         vim.cmd("cope")
     end
