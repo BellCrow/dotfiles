@@ -17,7 +17,7 @@ require("blink.cmp").setup({
     },
 
     sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lsp", "path", "snippets" },
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
