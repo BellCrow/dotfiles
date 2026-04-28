@@ -11,7 +11,7 @@ local lua_ls_config = {
     filetypes = { "lua" },
 }
 
-if should_load_nvim_types() then
+function Load_nvim_types()
     vim.print("Adding vim types to lua ls")
     lua_ls_config.settings = {
         Lua = {
@@ -23,6 +23,10 @@ if should_load_nvim_types() then
             },
         },
     }
+end
+
+if should_load_nvim_types() then
+    Load_nvim_types()
 end
 
 vim.lsp.config("lua_ls", lua_ls_config)

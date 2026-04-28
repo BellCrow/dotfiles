@@ -1,3 +1,5 @@
+-- TODO: test the option to debug unit tests
+-- if missing; add this functionality
 require("core/util")
 vim.pack.add({ "https://github.com/mfussenegger/nvim-dap" })
 
@@ -56,12 +58,6 @@ vim.fn.sign_define("DapBreakpoint", {
     numhl = "DapBreakpoint",
 })
 
--- vim.fn.sign_define("DapBreakPoint", {
---     text = "🔴",
---     texthl = "yellow",
---     linehl = "DapBreakpoint",
---     numhl = "DapBreakpoint",
--- })
 vim.fn.sign_define("DapBreakpointRejected", {
     text = "⭕",
     texthl = "DapStoppedSymbol",
@@ -75,6 +71,7 @@ vim.fn.sign_define("DapStopped", {
     linehl = "RedrawDebugClear",
     numhl = "DapBreakpoint",
 })
+
 -- dap view
 vim.pack.add({ "https://github.com/igorlfs/nvim-dap-view" })
 require("dap-view").setup({

@@ -46,3 +46,5 @@ vim.o.pumheight = 10
 vim.diagnostic.config({
     severity_sort = true,
 })
+-- this is the best thing since sliced bread :D
+require("vim._core.ui2").enable()
