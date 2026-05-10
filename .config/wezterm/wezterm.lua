@@ -8,7 +8,7 @@ config.font_size = 12
 config.audible_bell = "Disabled"
 config.use_ime = false
 config.enable_kitty_keyboard = false
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.95
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.window_padding = {
     left = 1,
