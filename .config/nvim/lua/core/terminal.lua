@@ -18,10 +18,8 @@ local function Create_floating_term(workDir)
         border = "rounded",
     }
 
-    local path = vim.fn.expand("%:p:h")
     local backing_buffer = vim.api.nvim_create_buf(false, true)
     _ = vim.api.nvim_open_win(backing_buffer, true, win_config)
-    vim.print(path)
     local workDirInternal = workDir or vim.uv.cwd()
     vim.fn.termopen({ vim.o.shell }, { cwd = workDirInternal })
     vim.cmd("normal i")
