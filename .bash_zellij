@@ -1,0 +1,2 @@
+# this sets the text zellij puts on the pane border to nothing
+echo -n -e "\033]0;\007"

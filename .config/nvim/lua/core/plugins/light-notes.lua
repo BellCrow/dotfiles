@@ -2,7 +2,7 @@ vim.pack.add({
     { src = "https://github.com/BellCrow/lightNotes.nvim", version = "master" },
 })
 local lightNotes = require("lightNotes")
-lightNotes.setup({ notes_directory = "~/lightNotesDemo/notes", log_level = 1 })
+lightNotes.setup({ notes_directory = "~/lightNotesDemo/notes", log_level = 1, file_extension = "md" })
 
 vim.keymap.set("n", "<leader>ng", lightNotes.toggle_global_note, { desc = "LightNotes: Opens the global note" })
 

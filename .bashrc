@@ -1,6 +1,7 @@
-if [ -z "$TMUX" ]
+if [ -z "$ZELLIJ" ]
 then
-	tmux
+	~/dev/tools/zellij
+	return 0
 fi
 
 case $- in
@@ -89,6 +90,7 @@ source ~/.bash_aliases
 
 source ~/.bash_git
 
+source ~/.bash_zellij
 # add ssh keys
 eval "$(ssh-agent -s)" &> /dev/null
 grep -slR "PRIVATE" ~/.ssh/ | xargs -I {} ssh-add -q {}
