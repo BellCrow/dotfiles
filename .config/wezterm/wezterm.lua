@@ -3,7 +3,6 @@ local config = {}
 
 config.font = wezterm.font("JetBrainsMono-Bold")
 config.color_scheme = "tokyonight_moon"
-config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 12
 config.audible_bell = "Disabled"
 config.use_ime = false
@@ -22,4 +21,30 @@ config.keys = {
     { key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
 }
 
+if  os.getenv("PC_PROFILE") == "WORK" then
+    -- i might need to see the other configs
+    config.hide_tab_bar_if_only_one_tab = true
+    -- WSL domain
+    config.wsl_domains = {
+        {
+            name = "WSL:Ubuntu",
+            distribution = "Ubuntu",
+        },
+    }
+
+    -- Default shell: PowerShell
+    config.default_prog = { "pwsh.exe", "-NoLogo" }
+
+    -- Launch menu entries
+    config.launch_menu = {
+        {
+            label = "PowerShell",
+            args = { "pwsh.exe", "-NoLogo" },
+        },
+        {
+            label = "Command Prompt",
+            args = { "cmd.exe" },
+        },
+    }
+    end
 return config

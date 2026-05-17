@@ -5,13 +5,9 @@ layout {
 				format_left   "#[bg=#181926]{tabs}"
 				format_center "#[bg=#fab387]"
 				format_space  "#[bg=#3B4252]"
-				// format_hide_on_overlength "true"
-				// format_precedence "crl"
 
-				border_enabled  "true"
 				border_char     "─"
 				border_format   "#[fg=#6C7086]{char}"
-				// border_position "top"
 
 				// formatting for inactive tabs
 				tab_normal              "#[fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]█"
@@ -24,14 +20,13 @@ layout {
 				tab_active_sync         "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]█"
 
 				// separator between the tabs
-				tab_separator           " "
+				tab_separator           "#[bg=#3B4252]|"
 
 				// indicators
 				tab_sync_indicator       "  "
 				tab_fullscreen_indicator " 󰊓 "
 				tab_floating_indicator   " 󰹙 "
 
-				hide_frame_for_single_pane "true"
             }
         }
         children
