@@ -1,12 +1,5 @@
 vim.pack.add({ { src = "https://github.com/saghen/blink.cmp", version = "v1" } })
 
--- vim.pack.add({
---     {
---         src = "https://github.com/ThePrimeagen/harpoon",
---         version = "harpoon2",
---     },
--- })
-
 require("blink.cmp").setup({
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = { preset = "default" },

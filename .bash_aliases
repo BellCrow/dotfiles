@@ -12,7 +12,6 @@ alias ll="ls -lAh --color=auto"
 alias k9s="k9s --kubeconfig kubeconfig"
 alias lzg="lazygit"
 alias lzd="lazydocker"
-alias fd="fdfind"
 
 
 # new task folder

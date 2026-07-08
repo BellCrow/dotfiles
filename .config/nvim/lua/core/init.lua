@@ -28,6 +28,7 @@ require("core/plugins/conform")
 require("core/plugins/fzf-lua")
 require("core/plugins/harpoon")
 require("core/plugins/tiny-inline-diagnostic")
+require("core/plugins/multicursor")
 
 require("core/plugins/dap")
 

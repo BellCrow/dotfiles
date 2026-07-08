@@ -23,6 +23,8 @@ keybinds clear-defaults=true {
         bind "Alt z" { ToggleFocusFullscreen;}
         bind "Alt m" { SwitchToMode "move";}
         bind "Alt s" { SwitchToMode "scroll";}
+
+        bind "Alt f" { ToggleFloatingPanes;}
 	}
 
 	pane{
@@ -35,7 +37,6 @@ keybinds clear-defaults=true {
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "normal"; }
         bind "|" { NewPane "right"; SwitchToMode "normal"; }
         bind "\"" { NewPane "down"; SwitchToMode "normal"; }
-        bind "f" { ToggleFloatingPanes; SwitchToMode "normal"; }
         bind "]" { NextSwapLayout; }
         bind "[" { PreviousSwapLayout; }
 	}
@@ -109,8 +110,9 @@ web_client {
     font "monospace"
 }
  
+// scrollback_editor "~/dev/tools/nvim"
 theme "tokyo-night-storm"
-pane_frames false
+pane_frames true
 support_kitty_keyboard_protocol false
 show_startup_tips false
 show_release_notes false

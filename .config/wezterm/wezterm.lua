@@ -21,9 +21,9 @@ config.keys = {
     { key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
 }
 
-if  os.getenv("PC_PROFILE") == "WORK" then
+if os.getenv("PC_PROFILE") == "WORK" then
     -- i might need to see the other configs
-    config.hide_tab_bar_if_only_one_tab = true
+    config.hide_tab_bar_if_only_one_tab = false
     -- WSL domain
     config.wsl_domains = {
         {
@@ -46,5 +46,8 @@ if  os.getenv("PC_PROFILE") == "WORK" then
             args = { "cmd.exe" },
         },
     }
-    end
+else
+    config.hide_tab_bar_if_only_one_tab = true
+end
+
 return config
