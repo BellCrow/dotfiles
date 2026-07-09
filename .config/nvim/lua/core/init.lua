@@ -31,6 +31,9 @@ require("core/plugins/tiny-inline-diagnostic")
 
 require("core/plugins/dap")
 
+vim.pack.add {
+	{ src = 'https://github.com/neovim/nvim-lspconfig' },
+}
 -- languages
 require("core/languages/lua")
 require("core/languages/csharp")

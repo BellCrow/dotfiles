@@ -1,6 +1,10 @@
 $env:ZELLIJ_CONFIG_DIR = "C:\Users\jkrieger\dotfiles\.config\zellij"
 $env:SHELL = "pwsh"
 
+$env:PATH += ";C:\Users\jkrieger\tools\nvim-win64\bin"
+$env:EDITOR = "C:\Users\jkrieger\tools\nvim-win64\bin\nvim.exe"
+$env:VISUAL = "C:\Users\jkrieger\tools\nvim-win64\bin\nvim.exe"
+
 if ($env:ZELLIJ -ne 0)
 {
 	Write-Output "starting zellij session..."
@@ -8,6 +12,7 @@ if ($env:ZELLIJ -ne 0)
 	return
 }
 
+$env:SHELL = "pwsh"
 # Colors
 $RED     = "`e[31m"
 $GREEN   = "`e[32m"
@@ -66,6 +71,16 @@ function Get-GitState
 
 function prompt
 {
+
+	# this block enables zellij to open 
+	# new panes in the same work dir as 
+	# the current pane
+	# https://github.com/zellij-org/zellij/issues/5052#issuecomment-4373009050
+    $p = $executionContext.SessionState.Path.CurrentLocation
+    if ($p.Provider.Name -eq "FileSystem") {
+        [System.Environment]::CurrentDirectory = $p.ProviderPath
+    }
+
 	$cwd = (Get-Location).Path
 	$git = Get-GitState
 
@@ -77,22 +92,55 @@ function prompt
 
 	return "$line1`n$line2"
 }
-$env:PATH += ";C:\Users\jkrieger\tools\nvim-win64\bin"
+
 $env:PATH += ";C:\Users\jkrieger\tools\"
 $env:PATH += ";C:\Users\jkrieger\tools\luals\bin"
-$env:PATH += ";C:\Users\jkrieger\tools\roslynLsp\content\LanguageServer\win-x64"
 $env:PATH += ";C:\Users\jkrieger\AppData\Local\Programs\Inno Setup 6"
 $env:PATH += ";C:\Users\jkrieger\tools\netcoredbg"
 
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 # disable all inline autocompletion
 Set-PSReadLineOption -PredictionSource None
 
+# vimode
+Import-Module PSReadLine
+Set-PSReadLineOption -EditMode Vi
+Set-PSReadLineOption -ViModeIndicator Cursor
 
+# Start each new prompt in insert mode
+Set-PSReadLineKeyHandler -Key Enter `
+    -BriefDescription AcceptLineAndInsert `
+    -LongDescription "Accept line and return to insert mode" `
+    -ScriptBlock {
+        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+        [Microsoft.PowerShell.PSConsoleReadLine]::ViInsertMode()
+    }
+
+# Optional: make sure Ctrl+C also leaves you in insert mode on a fresh prompt
+Set-PSReadLineKeyHandler -Key Ctrl+c `
+    -BriefDescription AbortAndInsert `
+    -LongDescription "Abort line and return to insert mode" `
+    -ScriptBlock {
+        [Microsoft.PowerShell.PSConsoleReadLine]::CancelLine()
+        [Microsoft.PowerShell.PSConsoleReadLine]::ViInsertMode()
+    }
+# end vi mode
+
+Import-Module PSFzf
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name ll -Value ls
 
-$env:EDITOR = $env:VISUAL = 'nvim'
+
+function config
+{  
+	set-location "~/dotfiles/" 
+}
+
+function vimconfig
+{  
+	set-location "~/dotfiles/.config/nvim" 
+}
+
 
 function repos
 {
@@ -113,6 +161,16 @@ function preplog
 function vimconfig
 {
 	set-location "C:\Users\jkrieger\AppData\Local\nvim"
+}
+
+function notes
+{
+	nvim ~/work/notes/global_notes.txt
+}
+
+function todo
+{
+	tuxedo ~/todo.txt
 }
 
 $bookmarks = "~/work/bookmarks.txt"

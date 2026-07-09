@@ -18,14 +18,15 @@ keybinds clear-defaults=true {
         bind "Alt i" { GoToTab 3; }
         bind "Alt o" { GoToTab 4; }
         bind "Alt p" { GoToTab 5; }
-        bind "Alt m" { GoToTab 5; }
+
+        bind "Alt e" { EditScrollback; }
 
         bind "Alt z" { ToggleFocusFullscreen;}
         bind "Alt m" { SwitchToMode "move";}
         bind "Alt s" { SwitchToMode "scroll";}
 	}
 
-	pane{
+	pane {
         bind "c" { NewTab;SwitchToMode "normal"; }
         bind "X" { CloseTab;SwitchToMode "normal"; }
         bind "x" { CloseFocus;SwitchToMode "normal"; }
@@ -110,7 +111,7 @@ web_client {
 }
  
 theme "tokyo-night-storm"
-pane_frames false
+pane_frames true
 support_kitty_keyboard_protocol false
 show_startup_tips false
 show_release_notes false
@@ -118,3 +119,4 @@ advanced_mouse_actions false
 mouse_hover_effects false
 visual_bell false
 mouse_click_through true
+scrollback_editor "nvim"

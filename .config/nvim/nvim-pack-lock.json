@@ -67,6 +67,10 @@
       "rev": "dd43736f30ed70571a02e8c560ab69746ad7a1ed",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
+    "nvim-lspconfig": {
+      "rev": "6f76a3eeadc2ee235d74cd7d5319e95a261084af",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -82,10 +86,6 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
-    "roslyn.nvim": {
-      "rev": "42d1196b4b06411504f897caeee0a3d4940e2654",
-      "src": "https://github.com/seblyng/roslyn.nvim"
     },
     "rustaceanvim": {
       "rev": "2497c7b2a61d4eb5dad716371a64ea82fb068bee",
