@@ -49,5 +49,4 @@ if os.getenv("PC_PROFILE") == "WORK" then
 	config.default_cursor_style = "SteadyBar"
 end
 
-
 return config

@@ -23,6 +23,10 @@
       "src": "https://github.com/BellCrow/lightNotes.nvim",
       "version": "'master'"
     },
+    "lua-utils.nvim": {
+      "rev": "e565749421f4bbb5d2e85e37c3cef9d56553d8bd",
+      "src": "https://github.com/nvim-neorg/lua-utils.nvim"
+    },
     "mini.ai": {
       "rev": "43eb2074843950a3a25aae56a5f41362ec043bfa",
       "src": "https://github.com/nvim-mini/mini.ai"
@@ -51,9 +55,17 @@
       "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "multicursor.nvim": {
+      "rev": "704b99f10a72cc05d370cfeb294ff83412a8ab55",
+      "src": "https://github.com/jake-stewart/multicursor.nvim.git"
+    },
     "neogen": {
       "rev": "23e7e9f883d01289ebd90e98025acc860ea26366",
       "src": "https://github.com/danymat/neogen"
+    },
+    "neorg": {
+      "rev": "1f14d72aad7165eac307a2a2f6be0fb97a04b3c2",
+      "src": "https://github.com/nvim-neorg/neorg"
     },
     "nvim-dap": {
       "rev": "45a69eba683a2c448dd9ecfc4de89511f0646b5f",
@@ -70,6 +82,9 @@
     "nvim-lspconfig": {
       "rev": "6f76a3eeadc2ee235d74cd7d5319e95a261084af",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    "nvim-nio": {
+      "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
@@ -82,6 +97,14 @@
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "orgmode": {
+      "rev": "5f7fbf738c500f6cdd15f0353e7fe2ad5e5f7a35",
+      "src": "https://github.com/nvim-orgmode/orgmode"
+    },
+    "pathlib.nvim": {
+      "rev": "57e5598af6fe253761c1b48e0b59b7cd6699e2c1",
+      "src": "https://github.com/pysan3/pathlib.nvim"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
@@ -99,6 +122,10 @@
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"
+    },
+    "vim-visual-multi": {
+      "rev": "a6975e7c1ee157615bbc80fc25e4392f71c344d4",
+      "src": "https://github.com/mg979/vim-visual-multi.git"
     }
   }
 }
