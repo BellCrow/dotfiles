@@ -19,7 +19,7 @@ require("core/plugins/mini-ai")
 require("core/plugins/mini-statusline")
 require("core/plugins/mini-pairs")
 
-require("core/plugins/oil")
+require("core/plugins/file-explorer")
 -- general purposes plugins
 require("core/plugins/neogen")
 require("core/plugins/blink-cmp")
@@ -29,6 +29,8 @@ require("core/plugins/fzf-lua")
 require("core/plugins/harpoon")
 require("core/plugins/tiny-inline-diagnostic")
 require("core/plugins/multicursor")
+require("core/plugins/fugitive")
+
 
 require("core/plugins/dap")
 
@@ -43,4 +45,3 @@ require("core/languages/xml")
 require("core/languages/yaml")
 
 -- custom plugin
-require("core/plugins/light-notes")

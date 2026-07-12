@@ -101,30 +101,6 @@ $env:PATH += ";C:\Users\jkrieger\tools\netcoredbg"
 # disable all inline autocompletion
 Set-PSReadLineOption -PredictionSource None
 
-# vimode
-Import-Module PSReadLine
-Set-PSReadLineOption -EditMode Vi
-Set-PSReadLineOption -ViModeIndicator Cursor
-
-# Start each new prompt in insert mode
-Set-PSReadLineKeyHandler -Key Enter `
-    -BriefDescription AcceptLineAndInsert `
-    -LongDescription "Accept line and return to insert mode" `
-    -ScriptBlock {
-        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-        [Microsoft.PowerShell.PSConsoleReadLine]::ViInsertMode()
-    }
-
-# Optional: make sure Ctrl+C also leaves you in insert mode on a fresh prompt
-Set-PSReadLineKeyHandler -Key Ctrl+c `
-    -BriefDescription AbortAndInsert `
-    -LongDescription "Abort line and return to insert mode" `
-    -ScriptBlock {
-        [Microsoft.PowerShell.PSConsoleReadLine]::CancelLine()
-        [Microsoft.PowerShell.PSConsoleReadLine]::ViInsertMode()
-    }
-# end vi mode
-
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 Set-Alias -Name vim -Value nvim
@@ -166,6 +142,11 @@ function vimconfig
 function notes
 {
 	nvim ~/work/notes/global_notes.txt
+}
+
+function thesis
+{
+	set-location "~/work/masterThesis/"
 }
 
 function todo

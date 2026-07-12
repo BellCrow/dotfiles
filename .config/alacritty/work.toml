@@ -1,0 +1,3 @@
+general.import = ["base.toml"]
+
+terminal.shell = "pwsh"

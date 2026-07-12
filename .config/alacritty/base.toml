@@ -1,7 +1,8 @@
 [general]
 live_config_reload = true
+working_directory = "C:\\Users\\jkrieger"
 
-# tokyonight theme taken from here:
+# tokyonight theme taken from here(and slightly altered):
 # https://github.com/zatchheems/tokyo-night-alacritty-theme/blob/main/tokyo-night.toml
 [colors.bright]
 black = "#444b6a"
@@ -15,7 +16,7 @@ yellow = "#ff9e64"
 
 [colors.normal]
 black = "#32344a"
-blue = "#7aa2f7"
+blue = "#9A45FF"
 cyan = "#449dab"
 green = "#9ece6a"
 magenta = "#ad8ee6"
@@ -34,7 +35,7 @@ startup_mode = "Maximized"
 size = 13.0
 
 [font.normal] 
-family = "0xProtoNerdFontMono"
+family = "0xProto Nerd Font Mono"
 style = "Regular"
 
 [mouse]
