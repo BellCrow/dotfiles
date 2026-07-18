@@ -32,7 +32,7 @@ foreground = "#a9b1d6"
 startup_mode = "Maximized"
 
 [font]
-size = 13.0
+size = 11.0
 
 [font.normal] 
 family = "0xProto Nerd Font Mono"
@@ -40,3 +40,8 @@ style = "Regular"
 
 [mouse]
 hide_when_typing = true
+
+[keyboard]
+bindings = [
+  { key = "Key6", mods = "Control", chars = "\u001e" }
+]
