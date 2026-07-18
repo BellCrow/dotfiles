@@ -16,7 +16,7 @@ require("core/theme")
 require("core/plugins/mini-icons")
 require("core/plugins/mini-surround")
 require("core/plugins/mini-ai")
-require("core/plugins/mini-statusline")
+-- require("core/plugins/mini-statusline")
 require("core/plugins/mini-pairs")
 
 require("core/plugins/file-explorer")

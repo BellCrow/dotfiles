@@ -11,9 +11,6 @@ conform.formatters.my_csharp = {
 }
 conform.formatters_by_ft.cs = { "my_csharp" }
 
--- docstyle
--- make neogen use the xmldoc style (it seems like roslyn cannot parse doxygen, which is the default)
-require("neogen").configuration.languages.cs.template.annotation_convention = "xmldoc"
 
 -- lsp
 vim.lsp.config("roslyn_ls", {
@@ -21,10 +18,10 @@ vim.lsp.config("roslyn_ls", {
 		-- better performance
 		-- according to mr ramboe
 		-- from whom i have taken this :D
-		-- ["csharp|background_analysis"] = {
-		-- 	dotnet_analyzer_diagnostics_scope = "openFiles",
-		-- 	dotnet_compiler_diagnostics_scope = "openFiles",
-		-- },
+		["csharp|background_analysis"] = {
+			dotnet_analyzer_diagnostics_scope = "openFiles",
+			dotnet_compiler_diagnostics_scope = "openFiles",
+		},
 	},
 })
 
