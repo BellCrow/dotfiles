@@ -16,8 +16,6 @@ conform.formatters_by_ft.cs = { "my_csharp" }
 require("neogen").configuration.languages.cs.template.annotation_convention = "xmldoc"
 
 -- lsp
-
-
 vim.lsp.config("roslyn_ls", {
 	settings = {
 		-- better performance
@@ -63,17 +61,17 @@ end
 local build_target_hint = nil
 
 local function build_target(build_target_arg, clean)
-	-- local make_command = "dotnet build --nologo -v q --property WarningLevel=0 /clp:ErrorsOnly"
-	--
-	-- if clean then
-	-- 	vim.print("Clean build")
-	-- 	make_command = make_command .. " --no-incremental"
-	-- end
-	--
-	-- make_command = make_command .. " " .. build_target_arg
-	-- vim.o.makeprg = make_command
-	-- vim.notify("Building target: " .. build_target_arg .. " Log output in register c\n", vim.log.levels.INFO)
-	-- vim.print("Building command: " .. make_command)
+	local make_command = "dotnet build --nologo -v q --property WarningLevel=0 /clp:ErrorsOnly"
+
+	if clean then
+		vim.print("Clean build")
+		make_command = make_command .. " --no-incremental"
+	end
+
+	make_command = make_command .. " " .. build_target_arg
+	vim.o.makeprg = make_command
+	vim.notify("Building target: " .. build_target_arg .. " Log output in register c\n", vim.log.levels.INFO)
+	vim.print("Building command: " .. make_command)
 	vim.cmd("compiler dotnet")
 	vim.cmd("let dotnet_errors_only = v:true")
 	vim.cmd("let dotnet_show_project_file = v:false")

@@ -24,6 +24,11 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
 vim.keymap.set("v", "v", "iw")
 
 -- copy absolute path of current file(or buffer) to clipboard
-vim.keymap.set({ "n", "v" }, "<leader>l", function()
+vim.keymap.set({ "n", "v" }, "<leader>o", function()
     vim.fn.setreg("+", vim.fn.expand("%:p"))
 end)
+
+vim.keymap.set({ "n", "v" }, "<leader>P", function()
+    vim.fn.setreg("+", vim.fn.expand("%:t")..":"..vim. fn.getcurpos(0)[1])
+end)
+

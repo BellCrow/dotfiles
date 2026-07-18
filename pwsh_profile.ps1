@@ -106,7 +106,6 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name ll -Value ls
 
-
 function config
 {  
 	set-location "~/dotfiles/" 
@@ -149,9 +148,9 @@ function thesis
 	set-location "~/work/masterThesis/"
 }
 
-function todo
+function org
 {
-	tuxedo ~/todo.txt
+	nvim ~/orgfiles
 }
 
 $bookmarks = "~/work/bookmarks.txt"

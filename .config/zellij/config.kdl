@@ -25,7 +25,6 @@ keybinds clear-defaults=true {
         bind "Alt m" { SwitchToMode "move";}
         bind "Alt s" { SwitchToMode "scroll";}
 
-        bind "Alt f" { ToggleFloatingPanes;}
 	}
 
 	pane {
@@ -34,12 +33,13 @@ keybinds clear-defaults=true {
         bind "x" { CloseFocus;SwitchToMode "normal"; }
         bind "l" { GoToNextTab; SwitchToMode "normal";}
         bind "h" { GoToPreviousTab; SwitchToMode "normal";}
-        bind "," { SwitchToMode "renametab"; PaneNameInput 0; }
+        bind "," {  PaneNameInput 0; SwitchToMode "renametab";}
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "normal"; }
         bind "|" { NewPane "right"; SwitchToMode "normal"; }
         bind "\"" { NewPane "down"; SwitchToMode "normal"; }
         bind "]" { NextSwapLayout; }
         bind "[" { PreviousSwapLayout; }
+        bind "f" { ToggleFloatingPanes;SwitchToMode "normal"; }
 	}
 
     renametab {
@@ -59,6 +59,8 @@ keybinds clear-defaults=true {
         bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
         bind "Ctrl u" {HalfPageScrollUp;}
         bind "Ctrl d" {HalfPageScrollDown;}
+        bind "k" {ScrollUp;}
+        bind "j" {ScrollDown;}
         bind "Ctrl y" {ScrollUp;}
         bind "Ctrl e" {ScrollDown;}
 		bind "esc" { SwitchToMode "normal";}

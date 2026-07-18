@@ -2,34 +2,41 @@ layout {
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-				format_left   "#[bg=#181926]{tabs}"
-				format_center "#[bg=#fab387]"
-				format_space  "#[bg=#3B4252]"
+                format_left   "#[bg=#181926]{tabs}"
+                format_center "#[bg=#fab387]"
+                format_space  "#[bg=#3B4252]"
 
-				border_char     "─"
-				border_format   "#[fg=#6C7086]{char}"
+                border_char     "─"
+                border_format   "#[fg=#6C7086]{char}"
 
-				// formatting for inactive tabs
-				tab_normal              "#[fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]█"
-				tab_normal_fullscreen   "#[fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{fullscreen_indicator}#[bg=#181926,fg=#363a4f,bold]█"
-				tab_normal_sync         "#[fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+                // formatting for inactive tabs
+                tab_normal              "#[fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+                tab_normal_fullscreen   "#[fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{fullscreen_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+                tab_normal_sync         "#[fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]█"
 
-				// formatting for the current active tab
-				tab_active              "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]█"
-				tab_active_fullscreen   "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{fullscreen_indicator}#[bg=#181926,fg=#363a4f,bold]█"
-				tab_active_sync         "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+                // formatting for the current active tab
+                tab_active              "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+                tab_active_fullscreen   "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{fullscreen_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+                tab_active_sync         "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]█"
 
-				// separator between the tabs
-				tab_separator           "#[bg=#3B4252]|"
+                // separator between the tabs
+                tab_separator           "#[bg=#3B4252]|"
 
-				// indicators
-				tab_sync_indicator       "  "
-				tab_fullscreen_indicator " 󰊓 "
-				tab_floating_indicator   " 󰹙 "
-
+                // indicators
+                tab_sync_indicator       "  "
+                tab_fullscreen_indicator " 󰊓 "
+                tab_floating_indicator   " 󰹙 "
             }
         }
         children
     }
-    tab name="tab 1" focus=true 
+
+    tab name="tab 1" focus=true{
+		pane
+		floating_panes {
+            pane x="10%" y="10%" width="85%" height="85%" {
+                // no command required; this acts as the floating template
+            }
+        }
+	}
 }

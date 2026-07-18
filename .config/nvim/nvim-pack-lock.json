@@ -5,6 +5,14 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "'v1'"
     },
+    "blink.compat": {
+      "rev": "1454f14a8d855a578ceeba77c62538fa1459a67c",
+      "src": "https://github.com/saghen/blink.compat"
+    },
+    "cmp-vimtex": {
+      "rev": "c09ca05bfa0641754516f13294d73d3799a02fc8",
+      "src": "https://github.com/micangl/cmp-vimtex"
+    },
     "conform.nvim": {
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -59,6 +67,18 @@
       "rev": "23e7e9f883d01289ebd90e98025acc860ea26366",
       "src": "https://github.com/danymat/neogen"
     },
+    "neotest": {
+      "rev": "504944bd70ef575315bc72a6aa633ef6ea0a4913",
+      "src": "https://github.com/nvim-neotest/neotest"
+    },
+    "neotest-dotnet": {
+      "rev": "e27c67a856ce67cc968b773d01a35ec07459bb8b",
+      "src": "https://github.com/Issafalcon/neotest-dotnet"
+    },
+    "neotest-vstest": {
+      "rev": "8588c3c988c7ed49879dddf937b42681cfa7ce30",
+      "src": "https://github.com/nsidorenco/neotest-vstest"
+    },
     "nvim-dap": {
       "rev": "45a69eba683a2c448dd9ecfc4de89511f0646b5f",
       "src": "https://github.com/mfussenegger/nvim-dap"
@@ -74,6 +94,10 @@
     "nvim-lspconfig": {
       "rev": "6f76a3eeadc2ee235d74cd7d5319e95a261084af",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-nio": {
+      "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-tree.lua": {
       "rev": "cf18a662cd5f200361b6fedfb794eed583e075e1",
@@ -95,6 +119,10 @@
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "orgmode": {
+      "rev": "f32a06d4b5399dad8bf0478c772bf6c513f02dcf",
+      "src": "https://github.com/nvim-orgmode/orgmode"
+    },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -114,6 +142,14 @@
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
+    },
+    "vimtex": {
+      "rev": "a5949d2800c1866c878956d49c51fc8d003c6b99",
+      "src": "https://github.com/lervag/vimtex"
+    },
+    "vscode.nvim": {
+      "rev": "aa1102a7e15195c9cca22730b09224a7f7745ba8",
+      "src": "https://github.com/mofiqul/vscode.nvim"
     }
   }
 }
