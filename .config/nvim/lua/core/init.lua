@@ -30,6 +30,8 @@ require("core/plugins/harpoon")
 require("core/plugins/tiny-inline-diagnostic")
 require("core/plugins/multicursor")
 require("core/plugins/fugitive")
+require("core/plugins/orgmode")
+require("core/plugins/neotest")
 
 
 require("core/plugins/dap")
