@@ -1,3 +1,5 @@
+[[ $- == *i* ]] || return  
+
 if [ -z "$ZELLIJ" ]
 then
 	~/dev/tools/zellij
