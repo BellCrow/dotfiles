@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 vim.g.leader = " "
 vim.g.maplocalleader = " "
 
+vim.cmd("clearjumps")
 require("core/settings")
 require("core/binds")
 require("core/terminal")

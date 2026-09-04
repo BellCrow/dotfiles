@@ -34,6 +34,7 @@ vim.keymap.set("n", "<Leader>dd", fzf.diagnostics_document)
 vim.keymap.set("n", "<Leader>wd", fzf.diagnostics_workspace)
 
 vim.keymap.set("n", "<Leader>fg", fzf.live_grep)
+vim.keymap.set("n", "<Leader>fb", fzf.buffers)
 vim.keymap.set("n", "<Leader>fG", fzf.lgrep_curbuf)
 vim.keymap.set({"n","v"}, "<Leader>fv", fzf.grep_visual)
 

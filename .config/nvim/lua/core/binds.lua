@@ -10,6 +10,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 local buf = vim.lsp.buf
 vim.keymap.set("n", "<leader>rn", buf.rename)
 vim.keymap.set("n", "<leader>ca", buf.code_action)
+
 -- vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gD", vim.lsp.buf.type_definition)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
@@ -32,3 +33,19 @@ vim.keymap.set({ "n", "v" }, "<leader>P", function()
     vim.fn.setreg("+", vim.fn.expand("%:t")..":"..vim. fn.getcurpos(0)[1])
 end)
 
+-- similar to <C-o> but jumps file wise 
+-- and ignores subsquent jumps inside the same file
+vim.cmd([[
+function! GoBackToRecentBuffer()
+  let startName = bufname('%')
+  while 1
+    exe "normal! \<c-o>"
+    let nowName = bufname('%')
+    if nowName != startName
+      break
+    endif
+  endwhile
+endfunction
+
+nnoremap <silent> <C-b> :call GoBackToRecentBuffer()<Enter>
+]])

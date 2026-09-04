@@ -50,7 +50,7 @@ vim.keymap.set("n", "<leader>dx", function()
 	get_dap().clear_breakpoints()
 end)
 
-vim.keymap.set("n", "<leader>fb", function()
+vim.keymap.set("n", "<leader>fB", function()
 	require("fzf-lua").dap_breakpoints()
 end)
 
