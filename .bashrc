@@ -1,6 +1,9 @@
-if [ -z "$TMUX" ]
+[[ $- == *i* ]] || return  
+
+if [ -z "$ZELLIJ" ]
 then
-	tmux
+	~/dev/tools/zellij
+	return 0
 fi
 
 case $- in
@@ -79,6 +82,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export MANPAGER='nvim +Man!'
 
+export PC_PROFILE="PERSONAL"
 # exports
 source ~/.bash_paths
 
@@ -88,6 +92,7 @@ source ~/.bash_aliases
 
 source ~/.bash_git
 
+source ~/.bash_zellij
 # add ssh keys
 eval "$(ssh-agent -s)" &> /dev/null
 grep -slR "PRIVATE" ~/.ssh/ | xargs -I {} ssh-add -q {}

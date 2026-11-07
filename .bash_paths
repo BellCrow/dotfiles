@@ -1,5 +1,7 @@
 PATH=$PATH:~/dev/tools
+PATH=$PATH:~/dev/dap
 PATH=$PATH:~/dev/lsp
 PATH=$PATH:~/dev/formatters
 PATH=$PATH:~/.dotnet
-PATH=$PATH:~/go/bin
+PATH=$PATH:/usr/local/go/bin
+PATH="$PATH:$(go env GOPATH)/bin"

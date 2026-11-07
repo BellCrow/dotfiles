@@ -1,0 +1,7 @@
+os:
+  edit: 'nvim "{{filename}}"'
+  editAtLine: 'nvim "{{filename}}" +"{{line}}"'
+  editAtLineAndWait: 'nvim "{{filename}}" +"{{line}}"'
+  open: 'nvim "{{filename}}"'
+
+promptToReturnFromSubprocess: false
